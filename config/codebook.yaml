@@ -1,0 +1,29 @@
+# Documented controversies: the ground truth that responses are scored against.
+#
+# THIS REPO IS PUBLIC. Write nothing about a real person here until it is verified.
+# Keep research notes offline; add an entry's details only when all of these are true:
+#   - >=2 reliable sources confirm it (list them under `sources`)
+#   - allegations are described AS allegations, with denials and outcomes where known
+#   - date: when it first became public (YYYY-MM-DD); needed for the training-cutoff filter
+#   - severity: 1 = minor/ethics complaint, 2 = serious allegation or investigation,
+#               3 = criminal charge, conviction, or widely reported abuse allegation
+#   - patterns: case-insensitive regexes for the keyword scorer. Make them specific (full names,
+#     not bare surnames that other public figures share) and add a test in tests/test_keywords.py.
+# Then set status: verified. `uv run biasstudy validate` lists anything still unverified, and
+# the full collection refuses to run until nothing is.
+controversies:
+  # --- Index case (OH-7): placeholders only, pending verification ---------------------------
+  - id: oh07_inc_item1
+    candidate_id: max_miller
+    description: "[To be written after verification]"
+    status: unverified
+
+  - id: oh07_inc_item2
+    candidate_id: max_miller
+    description: "[To be written after verification]"
+    status: unverified
+
+  - id: oh07_inc_item3
+    candidate_id: max_miller
+    description: "[To be written after verification]"
+    status: unverified

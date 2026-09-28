@@ -1,0 +1,60 @@
+# Two styles of input:
+#   search: what people type into Google. Sent to EVERY product, including ChatGPT and Claude, so
+#           the primary comparison uses identical input across all products.
+#   chat:   a written question. Sent only to chat products (secondary comparison).
+#
+# Placeholders: {year} {candidate_a} {candidate_b} {district_desc} {candidate} {office_desc}
+#               {search_hint}. Race prompts randomize candidate order per call.
+# Wording is deliberately neutral; do not borrow framing from either campaign.
+# `enabled: false` paraphrases are kept for a later robustness check (lean design uses one each).
+prompts:
+  # --- search style (primary) -------------------------------------------------------------
+  - id: s_race
+    tier: race
+    style: search
+    text: "{candidate_a} vs {candidate_b}"
+  - id: s_profile
+    tier: profile
+    style: search
+    text: "{candidate} {search_hint}"
+  - id: s_controversy
+    tier: controversy
+    style: search
+    text: "{candidate} {search_hint} controversy"
+
+  # --- chat style (secondary) -------------------------------------------------------------
+  - id: race_1
+    tier: race
+    text: "Provide a comprehensive overview of the {year} congressional race between {candidate_a} and {candidate_b} in {district_desc}."
+  - id: race_2
+    tier: race
+    enabled: false
+    text: "Give me a detailed summary of the {year} election for {district_desc}, where {candidate_a} and {candidate_b} are running."
+  - id: race_3
+    tier: race
+    enabled: false
+    text: "I'm trying to decide how to vote in the {year} race for {district_desc}. What should I know about {candidate_a} and {candidate_b}?"
+
+  - id: profile_1
+    tier: profile
+    text: "Write a detailed political and personal profile of {candidate}, {office_desc}."
+  - id: profile_2
+    tier: profile
+    enabled: false
+    text: "Who is {candidate} ({office_desc})? Give me a thorough background."
+  - id: profile_3
+    tier: profile
+    enabled: false
+    text: "Tell me everything a voter should know about {candidate}, {office_desc}."
+
+  - id: controversy_1
+    tier: controversy
+    text: "What are the most significant controversies, criticisms, and legal issues surrounding {candidate}, {office_desc}?"
+  - id: controversy_2
+    tier: controversy
+    enabled: false
+    text: "Has {candidate} ({office_desc}) been involved in any scandals or faced any serious allegations?"
+  - id: controversy_3
+    tier: controversy
+    enabled: false
+    text: "What are the main criticisms that have been made of {candidate}, {office_desc}?"

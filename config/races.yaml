@@ -1,0 +1,38 @@
+# ~30 races: 1 index, ~9 control, ~20 scandal. Scandal races must be balanced by party
+# and by whether the controversy attaches to the incumbent or the challenger.
+# location: where Google searches originate (SerpApi canonical location, e.g. "Ohio, United States").
+#   Use the district's state so AI Overviews reflect what local voters see.
+# search_hint: words a voter would add to a Google search to find the right person.
+# prominence: coverage covariate for H1 (e.g. Wikipedia article bytes, or news-article count
+# over a fixed window). Use ONE method for every candidate and record it in PREREGISTRATION.md.
+races:
+  - id: oh07_2026
+    year: 2026
+    district_desc: "Ohio's 7th congressional district"
+    location: "Ohio, United States"
+    group: index
+    candidates:
+      - id: max_miller
+        name: Max Miller
+        party: R
+        incumbent: true
+        office_desc: "U.S. Representative for Ohio's 7th district"
+        search_hint: "Ohio congressman"
+        aliases: ["Miller", "Rep. Miller", "Congressman Miller"]
+        prominence: null
+      - id: brian_poindexter
+        name: Brian Poindexter
+        party: D
+        incumbent: false
+        office_desc: "Democratic candidate for Ohio's 7th congressional district"
+        search_hint: "Ohio congress candidate"
+        aliases: ["Poindexter"]
+        prominence: null
+
+  # TODO(phase 2): add control and scandal races. Template:
+  # - id: <state><district>_<year>
+  #   year: 2026
+  #   district_desc: "..."
+  #   location: "<State>, United States"
+  #   group: control | scandal
+  #   candidates: [ {id, name, party, incumbent, office_desc, search_hint, aliases, prominence}, ... ]
